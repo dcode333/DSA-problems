@@ -1,10 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-int main()
+class stack
 {
 
+}
+
+int
+main()
+{
 
     return 0;
 }
