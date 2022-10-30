@@ -63,7 +63,7 @@ int main()
 {
     int a[5] = {2, 4, 3, 7, 3};
     int len = sizeof(a) / sizeof(a[0]);
-    int key = 90;
+    int key = 5;
     int start = 0;
     int end = len - 1;
 
@@ -77,7 +77,7 @@ int main()
             start++;
         else
         {
-            cout << a[start] << " and " << a[end] << " makes " << key;
+            cout << start << " and " << end << " makes " << key;
             break;
         }
     }

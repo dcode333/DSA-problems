@@ -10,18 +10,15 @@ Sorting:
  Selection Sort:
     Worst   => O(n2)
     Average => O(n2)
-  
  Bubble Sort:
     O(n²) in the average and worst cases
     O(n) in the best case 
-
  Insersion Sort:
- Time Complexity is: 
+   Time Complexity is
         If the inversion count is O(n), 
         then the time complexity of insertion sort is O(n).
 
     Some Facts about insertion sort:
-    1. Simple implementation: Jon Bentley shows a three-line C version, and a five-line optimized version[1]
     2. Efficient for (quite) small data sets, much like other quadratic sorting algorithms
     3. More efficient in practice than most other simple quadratic (i.e., O(n2)) 
     algorithms such as selection sort or bubble sort
@@ -30,3 +27,26 @@ Sorting:
     5. Stable; i.e., does not change the relative order of elements with equal keys
     6. In-place; i.e., only requires a constant amount O(1) of additional memory space
     Online; i.e., can sort a list as it receives it   
+ Merge Sort:
+    => time complexity: nlogn (all cases)
+    => explain: https://www.youtube.com/watch?v=4z9I6ZmeLOQ&list=PLfqMhTWNBTe0b2nM6JHVCnAkhQRGiZMSJ&index=46&t=107s
+    => Merge sort can work well on any type of data sets irrespective of its size (either large or small)
+ Quick Sort:
+      => Time Complexity: 
+            best: nlogn (if pivot point is the mid)
+            worst: n^2 (if traversed n for pivot) 
+      => Quick sort is more efficient and works faster than merge 
+         sort in case of smaller array size or datasets.        
+ Count Sort:
+      => Time Complexity: 
+            max(Ai,N)
+      => This sorting technique is effective when the difference between different keys 
+         are not so big, otherwise, it can increase the space complexity.
+      => Counting sort is most efficient if the range of input values is not greater
+         than the number of values to be sorted.  
+ DNF Sort: 
+    => Time Complexity: 0(n)        
+    => for sorting array of only (0,1,2)
+ Wave Sort:
+    => Use to sort array in Wave manner like (big,small,big...)
+    => Time Complexity: 0(n)     

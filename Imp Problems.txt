@@ -1,6 +1,7 @@
 => Searching in 2D array
 => Highest occuring in an array
-=> Duplicates in String : 0(n)
+=> Duplicates in String : 0(n)-(XOR)
 => remove Duplicates in String (recursion)
 => string subseq (recursion)
 => string permutation (recursion)
+=>

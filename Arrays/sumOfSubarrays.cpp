@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//123212
+//1112223
 int main()
 {
     int arr[3] = {1, 2, 3};
