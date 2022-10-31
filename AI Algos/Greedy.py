@@ -1,7 +1,6 @@
 from socket import close
 
 
-
 graph = {
     'A': ['B', 'C'],
     'B': ['D'],
@@ -18,6 +17,3 @@ h = {
     'E': 5,
     'G': 0,
 }
-
-
-    
