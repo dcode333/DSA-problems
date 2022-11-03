@@ -21,7 +21,7 @@ void reverseStack(stack<int> &s)
     if (s.empty())
         return;
 
-    int T = s.top(); // 5 4 3 2 1
+    int T = s.top();
     s.pop();
     reverseStack(s);
     insertBottom(s, T);
@@ -35,7 +35,6 @@ int main()
     s.push(15);
     s.push(16);
     reverseStack(s);
-    //(5-(6/3))  =>
 
     while (!s.empty())
     {

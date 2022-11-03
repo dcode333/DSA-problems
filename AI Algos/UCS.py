@@ -35,3 +35,5 @@ Graph = {
 
 cost = UCS("A", Graph, "D")[-1][0]
 print("Cost: ", cost)
+
+

@@ -1,2 +1,1 @@
-
-    insertAtTail(head3, 12);
+n

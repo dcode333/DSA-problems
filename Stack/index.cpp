@@ -50,15 +50,26 @@ public:
     }
 };
 
+
 int main()
 {
-    Stack s;
-    s.push(1);
-    s.push(2);
-    s.push(3);
+    // Stack s;
+    // s.push(1);
+    // s.push(2);
+    // s.push(3);
 
-    cout << s.Top() << "\n";
-    cout << s.empty();
+    // cout << s.Top() << "\n";
+    // cout << s.empty();
 
+    //{[}]{}() iv
+    //{}[]{}()  v
+    //[{}]{}()  v
+    //{[]}{}()  v
+
+    //  }] } )
+    //{[  { (
+    //
+
+    // cout << balancedParantheses("{([])}");
     return 0;
 }

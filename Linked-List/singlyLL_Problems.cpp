@@ -266,11 +266,11 @@ int main()
     insertAtTail(head, 3);
     insertAtTail(head, 4);
     insertAtTail(head, 5);
-    insertAtTail(head, 6);
-    insertAtTail(head, 7);
 
-    node *nh = putOddNodesFirst(head);
+    node *nh = reverseKNodes(head, 3);
     displayList(nh);
+
+    // cout << max;
 
     return 0;
 }
