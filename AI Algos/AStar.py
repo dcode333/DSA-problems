@@ -1,27 +1,34 @@
 from queue import PriorityQueue
 
 
-def UCS(start, G, target):
+def A_Star(start, G, hn, target):
     open = PriorityQueue()
     close = []
     open.put((0, '-', start))
     breaker = False
 
     while not breaker:
-        v = open.get()
-        close.append(v)
+        popper = open.get()
+        close.append(popper)
 
-        if v[2] == target:
-            print("Target Found ===", v[2])
+        if popper[2] == target:
+            print("Target Found ===", popper[2])
             breaker = True
         else:
-            for i in G[v[2]]:
+            for i in G[popper[2]]:
                 if i[0] not in [j[1] for j in close]:
-                    open.put((v[0] + i[1], v[2], i[0]))
-                    print((v[0] + i[1], v[2], i[0]))
+                    open.put((popper[0] + i[1]+hn[i[0]], popper[2], i[0]))
                 if open.empty():
                     breaker = True
-    return close
+    popper = close[-1]
+    cost = close[-1][0]
+    while popper[1] != '-':
+        for i in close:
+            if popper[1] == i[2]:
+                cost -= hn[i[2]]
+                popper = i
+                break
+    return cost
 
 
 Graph = {
@@ -38,9 +45,10 @@ hn = {
     'A': 20,
     'B': 15,
     'C': 20,
-    'D': 3,
+    'D': 10,
     'E': 5,
+    'F': 3,
     'G': 0,
 }
-cost = UCS("A", Graph, "D")[-1][0]
+cost = A_Star("A", Graph, hn, "D")
 print("Cost: ", cost)

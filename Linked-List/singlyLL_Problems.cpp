@@ -129,11 +129,16 @@ node *reverseKNodes(node *&head, int k)
     if (head == NULL)
         return head;
 
+    // 123N 456N 78N N
+    //  321 654 87
+
     node *temp = head;
-    for (int i = 1; i < k; i++)
+    int i = 1;
+    for (; i < k; i++)
     {
         if (temp->next == NULL)
             break;
+
         temp = temp->next;
     }
 
@@ -245,27 +250,28 @@ node *putOddNodesFirst(node *&head)
 int main()
 {
     node *head = NULL; // It will be changed after every insertAtTail call cuz of referencing in func params
+    node *head2 = NULL;
 
     // MergedLL
-    // insertAtTail(head, 5);
-    // insertAtTail(head, 6);
-    // insertAtTail(head, 7);
-    // insertAtTail(head, 8);
-    // insertAtTail(head2, 1);
-    // insertAtTail(head2, 2);
-    // insertAtTail(head2, 3);
-    // insertAtTail(head2, 4);
+    insertAtTail(head, 1);
+    insertAtTail(head, 2);
+    insertAtTail(head, 3);
+    insertAtTail(head, 4);
+    insertAtTail(head, 5);
+    insertAtTail(head, 6);
+    insertAtTail(head, 7);
+    insertAtTail(head, 8);
     // insertAtTail(head3, 10);
     // insertAtTail(head3, 11);
     // insertAtTail2(head2, 10, head);
     // insertAtTail2(head3, 11, head);
     // intersectionPoint(head2, head3);
 
-    insertAtTail(head, 1);
-    insertAtTail(head, 2);
-    insertAtTail(head, 3);
-    insertAtTail(head, 4);
-    insertAtTail(head, 5);
+    // insertAtTail(head, 1);
+    // insertAtTail(head, 2);
+    // insertAtTail(head, 3);
+    // insertAtTail(head, 4);
+    // insertAtTail(head, 5);
 
     node *nh = reverseKNodes(head, 3);
     displayList(nh);

@@ -27,7 +27,7 @@ void permutations(string s, string ans)
 int main()
 {
     int n = 2;
-    int a[n] = {1, 2};
+    int a[n] = {1, 2,3,4};
 
     for (int i = 0; i < n; i++)
     {
@@ -42,4 +42,3 @@ int main()
 
     return 0;
 }
-    
