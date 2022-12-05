@@ -50,3 +50,8 @@ Sorting:
  Wave Sort:
     => Use to sort array in Wave manner like (big,small,big...)
     => Time Complexity: 0(n)     
+
+Data Structures:
+MultiSet: 
+   Works like stack but can store the
+   elems in descending or ascending order

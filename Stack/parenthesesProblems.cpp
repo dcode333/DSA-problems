@@ -61,9 +61,41 @@ bool isValid(string s)
     return false;
 }
 
+bool isSign(char s)
+{
+    if (s == '+' || s == '-' || s == '/' || s == '*')
+        return true;
+    return false;
+}
+bool redundantParentheses(string s)
+{
+
+    stack<int> st;
+    for (int i = 0; i < s.size(); i++)
+    {
+
+        if (s[i] == '(' || isSign(s[i]))
+            st.push(s[i]);
+        else if (s[i] == ')')
+        {
+            if (isSign(st.top()))
+            {
+                while (st.top() != '(')
+                    st.pop();
+                st.pop();
+            }
+            else
+                return true;
+        }
+    }
+
+    return false;
+}
+
 int main()
 {
 
-    cout << balancedParantheses("{([])}");
+    cout << redundantParentheses("((a*(a+b)(a*a/b)))");
+    
     return 0;
 }
