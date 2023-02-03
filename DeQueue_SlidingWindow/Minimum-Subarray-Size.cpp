@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+//Find the min subArray size having sum of elems > x
 
 int maxPerfectSubArray(vector<int> nums, int target)
 {
