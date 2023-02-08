@@ -1,91 +1,78 @@
-#include <bits/stdc++.h>
+// C++ program for implementation of Heap Sort
+#include <iostream>
 using namespace std;
-// parent of a node => i/2
-// childs of a node => L(i*2) R(i*2+1)
 
-class heap
+// To heapify a subtree rooted with node i which is
+// an index in arr[]. n is size of heap
+void heapify(int arr[], int n, int i)
 {
-public:
-    vector<int> hp = {-1};
+    int largest = i;   // Initialize largest as root Since we are using 0 based indexing
+    int l = 2 * i + 1; // left = 2*i + 1
+    int r = 2 * i + 2; // right = 2*i + 2
 
-    void insert(int n) // 0(n)
+    // If left child is larger than root
+    if (l < n && arr[l] > arr[largest])
+        largest = l;
+
+    // If right child is larger than largest so far
+    if (r < n && arr[r] > arr[largest])
+        largest = r;
+
+    // If largest is not root
+    if (largest != i)
     {
-        hp.push_back(n); // push every new elem to the last
-        int index = hp.size() - 1;
-        int parent;
+        swap(arr[i], arr[largest]);
 
-        while (index > 1) // building the heap
-        {
-            parent = index / 2;
-            if (hp[parent] < hp[index]) // if child>Parent => swap and child=parent
-            {
-                swap(hp[parent], hp[index]);
-                index = parent;
-            }
-            else
-                return;
-        }
+        // Recursively heapify the affected sub-tree
+        heapify(arr, n, largest);
     }
+}
 
-    void del() //0(lg n)
+// main function to do heap sort
+void heapSort(int arr[], int n)
+{
+    // Build heap (rearrange array)
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
+
+    // One by one extract an element from heap
+    for (int i = n - 1; i >= 0; i--)
     {
-        hp[1] = hp[hp.size() - 1];
-        hp.pop_back();
-        int i = 1;
-        while (i < hp.size())
-        {
-            int left = 2 * i;
-            int right = 2 * i + 1;
-            if (hp[left] && hp[right])
-            {
-                if (hp[left] > hp[right])
-                {
-                    swap(hp[i], hp[left]);
-                    i = left;
-                }
-                else
-                {
+        // Move current root to end
+        swap(arr[0], arr[i]);
 
-                    swap(hp[i], hp[right]);
-                    i = right;
-                }
-            }
-            else if (left && hp[left] > hp[i])
-            {
-                swap(hp[left], hp[i]);
-                i = left;
-            }
-            else if (right && hp[right] > hp[i])
-            {
-                swap(hp[right], hp[i]);
-                i = right;
-            }
-            else
-                return;
-        }
+        // call max heapify on the reduced heap
+        heapify(arr, i, 0); // always putting 0th elem to its correct place
     }
+}
 
-    void print()
-    {
-        for (int i = 1; i < hp.size(); i++)
-            cout << hp[i] << " ";
-    }
-
-    
-};
+void printArray(int arr[], int n)
+{
+    for (int i = 0; i < n; ++i)
+        cout << arr[i] << " ";
+    cout << "\n";
+}
 
 int main()
 {
+    int arr[] = {60, 20, 40, 70, 30, 10};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    // heapify algorithm
+    //  the loop must go reverse you will get after analyzing manually
+    //  (i=n/2 -1) because other nodes/ ele's are leaf nodes
+    //  (i=n/2 -1) for 0 based indexing
+    //  (i=n/2) for 1 based indexing
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
 
-    heap h;
-    h.insert(50);
-    h.insert(55);
-    h.insert(53);
-    h.insert(52);
-    h.insert(54);
-    h.del();
-    h.del();
-    h.print();
+    cout << "After heapifying array is \n";
+    printArray(arr, n);
+
+    heapSort(arr, n);
+
+    cout << "Sorted array is \n";
+    printArray(arr, n);
 
     return 0;
 }
+// code by Prajwal Chougale
